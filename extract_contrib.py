@@ -89,7 +89,7 @@ def mulliken_for_state_k(mlkfile, target_state, target_k, atoms, select_species,
                 else:
                     val = float(w[MLK_START+1+substate])
                 cur_vals.append(val)
-                if len(cur_atoms)==twice and current_state==target_state and current_k==target_k:
+                if len(cur_atoms)==twice and current_state==target_state and current_k==(target_k+1):
                     for i, sp in enumerate(atoms):
                         if sp in select_species:
                             spec_sum[sp] += cur_vals[2*i] + cur_vals[2*i+1]
@@ -159,3 +159,4 @@ if __name__=="__main__":
             fout.write(line+"\n")
 
     print("\n✅ 结果已保存到 contrib_selected.csv")
+
